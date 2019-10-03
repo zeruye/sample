@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<flow name="secondFlow" doc:id="773e9284-7e1f-42c4-895a-2c53578e51da" >
+		<http:listener doc:name="Listener" doc:id="aa1191c0-ea78-4054-b3d9-73dd7b476473" config-ref="HTTP_Listener_config" path="/second"/>
+		<logger level="INFO" doc:name="Logger" doc:id="977d79e0-8648-4621-9c3c-467623378823" message="this is second "/>
+		<logger level="INFO" doc:name="Logger" doc:id="45436531-017d-4ba1-87c5-4f04b08aca90" message='"how it works"'/>
+	</flow>
+</mule>

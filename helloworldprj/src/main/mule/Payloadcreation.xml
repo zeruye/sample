@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<flow name="PayloadcreationFlow" doc:id="a7dcf09f-4567-43d2-9fb3-78cc7a02c48b" >
+		<http:listener doc:name="Listener" doc:id="8d39ab37-6460-443a-9f60-aee3994c31b1" config-ref="HTTP_Listener_config" path="/payloadcreation"/>
+		<set-payload value='#[%dw 2.0
+output application/json
+---
+
+	
+
+
+{
+	name: "zee assefa",
+	age:"27",
+	country:"Ethiopia"
+
+
+}]' doc:name="Set Payload" doc:id="01acf0e3-4d98-4608-85f6-cf343c140563" />
+		<set-variable value="#[payload.name]" doc:name="Set Variable" doc:id="1d11ce40-5384-4b2c-9cae-6875781102df" variableName="s"/>
+		<set-payload doc:name="Set Payload" doc:id="3777e519-8d54-48d5-9b5a-0b9b145627b2" value="#[%dw 2.0
+output application/xml
+---
+k:payload]"/>
+	</flow>
+</mule>

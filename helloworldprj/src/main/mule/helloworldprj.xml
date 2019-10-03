@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="9cc6f850-78d0-47ac-9150-aa89b81cf5da">
+		<http:listener-connection host="localhost" port="8087" />
+	</http:listener-config>
+	<flow name="helloworldprjFlow" doc:id="c1b3d5cb-9210-46ce-a909-e2088c3b9ac9" >
+		<http:listener doc:name="Listener" doc:id="ae3a10c1-f2fc-491a-ba61-75f9ec6a5c0e" path="/helloworld" config-ref="HTTP_Listener_config"/>
+		<logger level="WARN" doc:name="Logger" doc:id="beb525b6-0c3e-4b6f-b7e3-4c86fe6017dc" message="this is sample hello world project" category="zee"/>
+		<logger level="INFO" doc:name="Logger" doc:id="bad7f4b8-a5cb-4016-a0c5-28b08c864c25" message="this is sample hello world project2" category="zee"/>
+	</flow>
+</mule>
